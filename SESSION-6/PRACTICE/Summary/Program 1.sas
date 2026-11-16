@@ -1,0 +1,83 @@
+LIBNAME SSN6 '/home/u61735472/BATCH_202203/A6.SESSION-6/DATASET';
+RUN;
+
+OPTION VALIDVARNAME=V7;
+PROC IMPORT OUT=SSN6.GLOBAL_SALES
+			DATAFILE='/home/u61735472/BATCH_202203/A6.SESSION-6/RAW DATA/A1.SAS Functions By Example.xlsx'
+			DBMS=XLSX REPLACE;
+			SHEET='DATA';
+RUN;			
+
+PROC CONTENTS DATA=SSN6.GLOBAL_SALES VARNUM SHORT;
+RUN;
+
+PROC SQL;
+CREATE TABLE SSN6.GLOBAL_SALES_V1 AS 
+SELECT Row_ID,Order_ID,
+SCAN(Order_ID,1,'-') AS COUNTRY_CODE,
+SCAN(Order_ID,3,'-') AS Order_Number,
+Order_Date,
+YEAR(Order_Date) AS Order_Year,
+MONTH(Order_Date) AS MONTH,
+DAY(Order_Date) AS ORDER_DAY,
+YEAR(Order_Date)*100+MONTH(Order_Date) AS ORDER_YEARMO,
+CASE
+	WHEN MONTH(Order_Date) IN (1,2,3) THEN 'Q1'
+	WHEN MONTH(Order_Date) IN (4,5,6) THEN 'Q2'
+	WHEN MONTH(Order_Date) IN (7,8,9) THEN 'Q3'
+	ELSE 'Q4'
+END AS ORDER_QTR,
+Ship_Date,
+INTCK('DAY',Order_Date,Ship_Date) AS Days_Gap,
+Ship_Mode,Customer_ID,Customer_Name,DOB,
+INTCK('YEAR',DOB,TODAY()) AS AGE,
+CASE
+	WHEN CALCULATED AGE>=60 THEN 'OLD-AGE'
+	WHEN CALCULATED AGE>=50 THEN 'MID-OLD-AGE'
+	WHEN CALCULATED AGE>=40 THEN 'MID-AGE'
+	WHEN CALCULATED AGE>=30 THEN 'MID-YOUNG-AGE'
+	ELSE 'YOUNG AGE'
+END AS AGE_BUCKET,
+SCAN(Customer_Name,1,' ') AS Custome_FirstName,
+SCAN(Customer_Name,2,' ') AS Customer_LastName,
+Segment,City,State,Country,
+CASE
+	WHEN Postal_Code IS NULL THEN 99999999
+	ELSE Postal_Code
+END AS Postal_Code,
+Market,Region,Product_ID,Category,Sub_Category,Product_Name,
+Sales FORMAT=DOLLAR12. ,
+Discount FORMAT=PERCENT8.2,
+Sales*Discount AS Discount_Amount FORMAT=DOLLAR12.,
+Sales-CALCULATED Discount_Amount   AS Sales_After_Discount FORMAT DOLLAR12.,
+Profit FORMAT DOLLAR12.,
+Shipping_Cost FORMAT DOLLAR12.,
+Order_Priority
+FROM SSN6.GLOBAL_SALES;
+QUIT;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

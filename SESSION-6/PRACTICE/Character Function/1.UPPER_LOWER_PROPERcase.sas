@@ -1,0 +1,66 @@
+LIBNAME SSN6 '/home/u61735472/BATCH_202203/A6.SESSION-6/DATASET';
+
+/* UPCASE,LOWCASE,PROPCASE */
+DATA NAMES;
+INFILE CARDS ;
+INPUT NAME $20.;
+CARDS;
+JAYDEV SAHOO
+jaydev sahoo
+Jaydev SAHOO
+JaYdeV sAHoo
+;
+RUN;
+
+DATA NAMES2;
+SET NAMES;
+NAME_UPPER=UPCASE(NAME);
+NAME_LOWER=LOWCASE(NAME);
+NAME_PROPER=PROPCASE(NAME);
+;
+RUN;
+PROC PRINT ;RUN;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

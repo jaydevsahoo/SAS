@@ -1,0 +1,45 @@
+DATA X;
+INPUT Y1-Y6;
+CARDS ;
+11 55 59 35 25 87
+12 79 73 74 86 29
+13 80 95 77 25 74
+;
+RUN;
+PROC PRINT DATA=X;RUN;
+
+/* Show variable containing max value */
+DATA X_MAX;
+SET X;
+ARRAY AR Y1-Y6;
+LARGEST=MAX(OF AR[*]);
+INDEX=WHICHN(LARGEST,OF AR[*]);
+NAME=VNAME(AR[INDEX]);
+RUN;
+
+PROC PRINT DATA=X_MAX;RUN;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,7 @@
+Terminologies
+VAR : The Var statement tells SAS that these variables are analysis variables. They must be numeric.
+ They are used to create summary statistics.
+
+CLASS : The Class statement tells SAS that these variables are categorical variables.
+
+TABLE : The Table statement tells SAS which variables are row expressions, which are column expressions.

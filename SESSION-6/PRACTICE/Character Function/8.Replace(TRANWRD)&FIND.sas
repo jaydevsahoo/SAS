@@ -1,0 +1,43 @@
+/* TRANWRD()-TRANSFORM THE WORD. (REPLACE) */
+DATA X;
+NAME='ABCD';
+NAME2=TRANWRD(NAME,'C','XYZ');
+RUN;
+PROC PRINT;RUN;
+
+DATA Y;
+NAME='Tony Stark';
+FIND1=FIND(NAME,'ST');
+FIND2=FIND(NAME,'T');
+FIND3=FIND(NAME,'St');
+FIND4=FIND(NAME,'ar','i');
+RUN;
+PROC PRINT;RUN;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
