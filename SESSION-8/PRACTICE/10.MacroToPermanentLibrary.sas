@@ -1,0 +1,35 @@
+
+OPTIONS MSTORED SASMSTORE=SSN8; 
+
+%MACRO MAC2(X,COMP,GEN,AGE,STCD)/STORE;
+DATA MED_&X.;
+SET SSN8.MED_2022;
+KEEP &VARS.;
+WHERE COMPANY="&COMP." AND GENDER="&GEN." AND AGE>=&AGE. AND STATE_CODE="&STCD.";
+%MEND;
+
+%MAC2(APPOLO,APPOLO,Male,35,QLD);
+
+/* It stored as .sas7bcat extension, which means catelog file */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

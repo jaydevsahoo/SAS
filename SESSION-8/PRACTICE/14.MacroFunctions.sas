@@ -1,0 +1,99 @@
+/* SAS MACRO FUNCTIONS */
+%PUT &SYSDAY.;
+%PUT &SYSDATE.;
+%PUT &SYSTIME.;
+
+%LET A=500;
+%LET B=600;
+%LET C=&A.+&B.; /* SAS macro will not create expression without a function */
+%PUT &C.;
+
+
+%LET A=500;
+%LET B=600;
+%LET D=%EVAL(&A.+&B.); /* Expression value for integer */
+%PUT &D.;
+
+
+%LET A1=500.50;
+%LET B1=600.65;
+%LET D1=%SYSEVALF(&A1.+&B1.);/* Expression value for float */
+%PUT &D1.;
+
+/* 
+1.SYMGET
+2.SYMGETN */
+
+%LET CITY=BBSR;
+
+DATA CITY_ALL;
+CITY_NAME="&CITY.";
+POPULATION=121212232332;
+RUN;
+PROC PRINT DATA=CITY_ALL;RUN;
+
+DATA CITY_ALL;
+CITY_NAME=SYMGET('CITY'); /* Calls macro variable without & symbol */
+POPULATION=121212232332;
+RUN;
+PROC PRINT DATA=CITY_ALL;RUN;
+
+
+/* ex-2 */
+
+%LET HARD=650;
+%LET MODERATE=375;
+%LET EASY=240;
+%PUT &HARD.;
+%PUT &MODERATE.;
+%PUT &EASY.;
+
+DATA EXERCISE;
+INPUT SPORT $ DIFFICULTY $;
+CARDS;
+GOLF EASY
+DANCE MODERATE
+BIKE HARD
+JOG HARD
+SWIM HARD
+WALK MODERATE
+STRETCH EASY
+;
+RUN;
+PROC PRINT DATA=EXERCISE;RUN;
+
+
+DATA CALORIES;
+SET EXERCISE;
+X1_CHAR=SYMGET(DIFFICULTY);
+X2_NUM=SYMGETN(DIFFICULTY);
+RUN;
+PROC PRINT DATA=CALORIES;RUN;
+/*
+Difference b/w SYMGET() & SYMGETN()
+1. SYMGET() reads macro variable as char
+2. SYMGETN() reads macro variable as numeric
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

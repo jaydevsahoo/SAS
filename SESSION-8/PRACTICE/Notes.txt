@@ -1,0 +1,85 @@
+
+Q. DIFFERENCE BETWEEN SYMGET AND SYMGETN ?
+A: SYMGET reads macro variable values as char
+   SYMGETN reads macro variable values as numeric
+   
+Q. CAN WE CREATE A MACRO VARIABLE USING %LET. IF SO, IS THIS GLOBAL OR LOCAL?   
+A. Yes , But it depends where it has been declared. If it is declared inside the %MACRO then it 
+   is LOCAL ,otherwise it is called GLOBAL
+
+Q. Macro variable values are case sensitive.
+
+Q. What does &&&& means?
+A. We are calling 3 macro variables at a time.   
+   
+Q. Give example of MACRO Scheduling system defind macro variables?   
+A. &SYSDAY,&SYSDATE,&SYSTIME,&SYSDATE9
+
+Q. HOW MANY WAYS WE CAN DEFINED SAS MACRO VARIABLES?
+A. %LET,Positional,Keyword,Global,Local,Proc SQL INTO,Call SYMPUT,%DO
+
+Q. What is "CALL SYMOUT"?
+A. When a Macro variable is passed in Data step we use "CALL SYMPUT",
+   However the variable cannot be called inside Data step. We have to call it outside.
+   Ex. DATA _NULL_;
+   	   CALL SYMPUT("X1",PUT(TODAY(),YYMMN6.)); 	
+   	   RUN;
+   	   
+   	   %PUT &X1.;
+   	   
+Q. WHAT IS THE DIFFERENCE BETWEEN %EVAL AND %SYSEVALF?
+A. Both are used in creating expression, 
+   %EVAL goes with integer values
+   %SYSEVALF goes with float values
+   Ex:
+   %LET A=100;
+   %LET B=200;
+   %LET C=&A.+&B.;
+   %PUT &C.;
+   
+   %LET A1=100.15;
+   %LET B1=200.65;
+   %LET C1=&A1.+&B1.;
+   %PUT &C1.;
+   
+Q. WHAT IS THE DIFFERENCE BETWEEN SYMGET AND SYMGETN? 
+A. SYMGET() will show macro variable value in char format
+   while SYMGETN() will show macro variable value in numeric format.	   
+
+
+Q. DO YOU AUTOMATE YOUR MACRO PROGRAM YOURSELF , 
+   OR YOU MAINTAIN THE ONE WHICH IS PREPARED BY SOMEONE? 
+A. I create my own if it is not available in the system, else I manage the old one 
+   which is being followed and modified if needed.
+
+Q. GIVE ME SCENARIOS WHERE YOU DESIGNED SAS MACRO AUTOMATION END TO END?  
+A. 1. Where redundant programming due to dataset and variables names are changing.
+   2. Where dataset is getting refreshed to most updated data by date and time.
+   3. where we have to develope statistical model to design EDA and model variable selection to
+   	  deploy the model.
+   4. where we need to run reports based on time and schedule.	  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

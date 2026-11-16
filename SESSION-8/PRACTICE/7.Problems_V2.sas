@@ -1,0 +1,45 @@
+/* Import all same type files in one go from a folder */
+
+DATA FILES;
+INPUT NAMES : $20.;
+CARDS;
+MED_APPOLO
+MED_CIPLA
+MED_GENO
+MED_GSK
+MED_RELEGARE
+;
+RUN;
+
+PROC SQL;
+SELECT NAMES INTO : FILE1 -: FILE5
+ FROM FILES;
+QUIT;
+
+%PUT &FILE4;
+
+%MACRO MAC2;
+%DO I=1 %TO 5;
+PROC IMPORT OUT=&&FILE&I.
+			DATAFILE="/home/u61735472/BATCH_202203/A8.SAS_MACRO/RAW_DATA/&&FILE&I...csv"
+			DBMS=CSV REPLACE;
+RUN;
+%END;			
+%MEND;
+
+%MAC2;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,92 @@
+/* 
+Industry Ex-1 
+How to read multiple sets of info in one programming.
+*/
+OPTION VALIDVARNAME=V7;
+PROC IMPORT OUT=MED1
+			DATAFILE='/home/u61735472/BATCH_202203/A8.SAS_MACRO/RAW_DATA/MED_ALL_2022.xlsx'
+			DBMS=XLSX REPLACE;
+			SHEET="";
+RUN;			
+
+%MACRO READ_ALL;
+%DO I=1 %TO 9;
+PROC IMPORT OUT=MED&I.
+			DATAFILE='/home/u61735472/BATCH_202203/A8.SAS_MACRO/RAW_DATA/MED_ALL_2022.xlsx'
+			DBMS=XLSX REPLACE;
+			SHEET="MED&I.";
+RUN;				
+%END;
+%MEND;			
+
+%READ_ALL;
+
+/* Export all MED1 TO MED9 to an excel file */
+
+%MACRO EXPORT;
+%DO I=1 %TO 9;
+PROC EXPORT DATA=MED&I.
+			OUTFILE='/home/u61735472/BATCH_202203/A8.SAS_MACRO/OUTPUT/MED_EXPORT.xlsx'
+			DBMS=XLSX REPLACE;
+			SHEET="MED&I.";
+%END;
+%MEND;
+
+%EXPORT;
+
+
+/* Append all data set to one */
+
+%MACRO APPEND;
+DATA MED_APPEND;
+SET %DO I=1 %TO 9;
+		MED&I.
+	%END;;
+RUN;
+%MEND;
+
+%APPEND;
+
+
+/* Create multiple dataset from MED_APPEND */
+
+/* Trick-1 */
+PROC SQL;
+SELECT DISTINCT COMPANY 
+				INTO : COMP1 -: COMP9
+FROM MED_APPEND;
+QUIT;
+%PUT &COMP4.;
+
+%MACRO DATAS;
+%DO I=1 %TO 9;
+DATA MED&I.;
+/* LENGTH Company $ 30; */
+SET MED_APPEND;
+WHERE Company="&&COMP&I.";
+RUN;
+%END;
+%MEND;
+
+%DATAS;
+PROC PRINT DATA=MED9;RUN;
+
+/* Trick-2 */
+
+%MACRO MAC;
+DATA %DO I=1 %TO 9;
+	 MED&I.
+	 %END;;	
+SET MED_APPEND;
+%DO I=1 %TO 9;
+IF COMP_ID="COMP_&I." THEN OUTPUT MED&I.;	 
+%END;;
+RUN;
+%MEND;
+
+%MAC;
+
+
+
+
+
