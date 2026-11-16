@@ -1,0 +1,22 @@
+CUSTOMER_ID      Company      CARD_REG_DATE         GENDER      Age     STATE_CODE      POST_CODE      NO_OF_TRIPS      TOWN            Spent amount
+1000032547       MED +        12-09-2006 00:00      Female      29      QLD             4701           4                Kyabram         69.37
+1000032548       DR.REDDYS    12-09-2006 00:00      Female      39      WA              6030           17               Hawthorn East   498.5
+1000032549       RELEGARE     12-09-2006 00:00      Female      54      NSW             2580           1                Revesby         1.56
+1000032550       GSK          12-09-2006 00:00      Male        35      VIC             3043           2                Willow Grove    160.98
+1000032551       GSK          12-09-2006 00:00      Male        34      VIC             3190           12               mona vale       289.1
+1000032552       APPOLO       09-07-2007 00:00      Female      26      NSW             2558           6                Rowville        690.45
+1000032553       CIPLA        12-09-2006 00:00      Female      26      VIC             3136           6                MINNAMURRA      160.89
+1000032554       APPOLO       12-09-2006 00:00      Male        26      QLD             4575           8                Lake Illawarra  253.23
+1000032555       APPOLO       12-09-2006 00:00      Male        55      NSW             2322           1                Vermont South   69.77
+1000032556       MED +        12-09-2006 00:00      Female      61      ACT             2913           2                Blackburn Nth   232.31
+1000032557       GSK          12-09-2006 00:00      Female      28      QLD             4814           1                Rowville        274.66
+1000032558       MED +        12-09-2006 00:00      Male        57      VIC             3370           1                Box Hill North  42.83
+1000032559       GENO         12-09-2006 00:00      Female      34      VIC             3875           1                FOREST HILL     79.48
+1000032560       DR.REDDYS    12-09-2006 00:00      Female      28      NSW             2641           1                BERWICK         26.88
+1000032561       RELEGARE     12-09-2006 00:00      Female      51      QLD             4118           3                Buderim         408.65
+1000032562       GUARDIAN     12-09-2006 00:00      Female      61      VIC             3793           2                kawungan        95.71
+1000032563       RELEGARE     12-09-2006 00:00      Female      48      QLD             4504           2                scarness        75.59
+1000032564       GUARDIAN     12-09-2006 00:00      Female      65      NSW             2176           4                Kuluin          83.87
+1000032565       GENO         12-09-2006 00:00      Female      63      NSW             2750           2                Menai           92.28
+1000032566       RANBAXY      12-09-2006 00:00      Male        64      NSW             2137           2                Warilla         249.46
+1000032567       MED +        12-09-2006 00:00      Male        41      NSW             2577           6                BARRACK HEIGHTS 251.45

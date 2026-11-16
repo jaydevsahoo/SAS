@@ -1,0 +1,38 @@
+data example;
+input id NUMS;
+cards;
+1 25
+1 30
+1 35
+1 40
+2 25
+2 30
+2 37
+;
+run;
+PROC PRINT DATA=EXAMPLE;RUN;
+DATA X;
+SET EXAMPLE;
+BY ID;
+LAG_VALUE=LAG(NUMS);
+IF FIRST.ID THEN LAG_VALUE=1;
+RUN;
+PROC PRINT DATA=X;RUN;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
