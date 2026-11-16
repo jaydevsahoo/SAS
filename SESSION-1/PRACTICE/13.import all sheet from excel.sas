@@ -1,0 +1,34 @@
+LIBNAME XYZ XLSX '/home/u61735472/BATCH_202203/A5.SESSION-5/RAW DATA/Transaction data.xlsx';
+RUN;
+
+PROC DATASETS LIBRARY=XYZ KILL;
+RUN;
+QUIT;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

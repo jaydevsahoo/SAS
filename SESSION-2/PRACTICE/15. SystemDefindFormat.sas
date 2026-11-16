@@ -1,0 +1,47 @@
+DATA SALES;
+SALES=123456789789456;
+QUANT=1234567;
+DATE='29JUN2022'D;
+FORMAT DATE DDMMYY10. SALES DOLLAR16. QUANT COMMA15.;
+RUN;
+PROC PRINT DATA=SALES;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

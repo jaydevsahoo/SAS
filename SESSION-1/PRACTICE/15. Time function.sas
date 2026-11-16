@@ -1,0 +1,32 @@
+DATA X;
+FORMAT X1 TOD9. X2 TOD5. X3 TOD9.;
+X1='1:30'T;
+X2='1:30'T;
+X3=TIME();
+RUN;
+PROC PRINT DATA=X;RUN;
+
+DATA X1;
+NOW=TIME();
+NOW1=PUT(NOW,TOD9.);
+RUN;
+PROC PRINT DATA=X1;RUN;
+
+/* 
+INPUTN- Converts characters to numeric
+PUTN- Converts numeric to char
+*/
+
+%LET DATE1=%SYSFUNC(TODAY(),DDMMYY10.);
+%LET TIME=&SYSTIME.;
+%LET C_DATE=%SYSFUNC(INPUTN(&DATE1.,DDMMYY10.));
+%LET C_DATE2=%SYSFUNC(PUTN(&C_DATE.,DATE9.))_%SYSFUNC(SUBSTR(&SYSTIME,1,2))_%SYSFUNC(SUBSTR(&SYSTIME,4,2));
+
+%PUT &DATE1.;
+%PUT &TIME.;
+%PUT &C_DATE.,&C_DATE2.;
+
+data _null_;
+   begin = time();
+   put begin tod9.;
+run;

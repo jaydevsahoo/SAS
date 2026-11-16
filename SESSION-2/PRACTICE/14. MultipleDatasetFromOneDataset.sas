@@ -1,0 +1,87 @@
+DATA MED;
+SET SSN2.MED_2022;
+RUN;
+
+DATA SSN2.MED_APPOLO SSN2.MED_GENO SSN2.MED_CIPLA SSN2.MED_OTHERS;
+SET MED;
+IF Company='APPOLO' THEN OUTPUT SSN2.MED_APPOLO;
+ELSE IF Company='GENO' THEN OUTPUT SSN2.MED_GENO;
+ELSE IF Company='CIPLA' THEN OUTPUT SSN2.MED_CIPLA;
+ELSE OUTPUT SSN2.MED_OTHERS;
+RUN;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,121 @@
+LIBNAME SSN2 '/home/u61735472/BATCH_202203/A2.SESSION-2/DATASET';
+RUN;
+
+DATA MED_2022(KEEP=CUSTOMER_ID	Company	CARD_REG_DATE	CARD_ACTIVE	FIRST_USE_DTE	firstSTOR	TITLE	GENDER);
+SET SSN2.MED_2022;
+WHERE Company='MED +' AND GENDER='Female';
+RUN;
+
+
+DATA MED_2022(KEEP=CUSTOMER_ID	Company	CARD_REG_DATE	CARD_ACTIVE	FIRST_USE_DTE	firstSTOR	TITLE	GENDER STATE_CODE);
+SET SSN2.MED_2022;
+WHERE Company IN ('MED +' 'GSK' 'APPOLO') AND STATE_CODE IN ('QLD' 'NSW');
+RUN;
+
+/* WHERE AS STATEMENT */
+
+DATA MED_2022;
+SET SSN2.MED_2022;
+WHERE Company IN ('GENO' 'GSK') AND STATE_CODE IN ('QLD' 'NSW');
+RUN;
+
+/* WHERE AS OPTION */
+
+DATA MED_2022;
+SET SSN2.MED_2022 (WHERE =(Company IN ('GENO' 'GSK') AND STATE_CODE IN ('QLD' 'NSW')));
+RUN;
+
+DATA MED_2022 (WHERE =(Company IN ('GENO' 'GSK') AND STATE_CODE IN ('QLD' 'NSW')));
+SET SSN2.MED_2022 ;
+RUN;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

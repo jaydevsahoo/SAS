@@ -1,0 +1,20 @@
+PROC DATASETS LIBRARY=WORK KILL;
+RUN;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

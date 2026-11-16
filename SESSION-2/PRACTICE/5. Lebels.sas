@@ -1,0 +1,40 @@
+DATA STAFF;
+SET SSN2.STAFF;
+LABEL LAST_NAME='CUST LN' FIRST_NAME='CUST FN';
+RUN;
+
+PROC CONTENTS DATA=STAFF VARNUM;RUN;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
